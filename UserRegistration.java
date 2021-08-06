@@ -2,8 +2,8 @@ package bridgelabz;
 import java.util.regex.*;
 import java.util.Scanner;
 public class UserRegistration {
-	 private boolean check;
-	    private String firstName, lastName, email, phoneNumber;
+	    private boolean check;
+	    private String firstName, lastName, email, phoneNumber, password;
 	    Scanner sc = new Scanner(System.in);
 	    
 	    public void checkFirstName() {
@@ -58,6 +58,19 @@ public class UserRegistration {
 	        }
 	    }
 
+	    public void checkPassword() {
+	        System.out.println("enter password(8 to 10 character): ");
+	        password = sc.nextLine();
+	        check = Pattern.compile("^[a-z]{8,}$").matcher(password).matches();
+	        if (!check) {
+	            System.out.println(" password invalid ");
+	            checkPassword();
+	        }
+	        else {
+	            System.out.println(" password valid ");
+	        }
+	    }
+
 	    public static void main(String args[]) {
 		
 	        UserRegistration user = new UserRegistration();
@@ -65,5 +78,6 @@ public class UserRegistration {
 	        user.checkLastName();
 	        user.checkEmail();
 	        user.checkPhoneNumber();
+	        user.checkPassword();
 	    }
 }
