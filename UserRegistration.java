@@ -2,7 +2,7 @@ package bridgelabz;
 import java.util.regex.*;
 import java.util.Scanner;
 public class UserRegistration {
-	 private boolean check;
+	   private boolean check;
 	    private String firstName, lastName, email, phoneNumber, password;
 	    Scanner sc = new Scanner(System.in);
 	    
@@ -59,9 +59,9 @@ public class UserRegistration {
 	    }
 
 	    public void checkPassword() {
-	        System.out.println("enter password min of 8 and atleast 1 uppercase character): ");
+	        System.out.println("enter password min of 8 and at least 1 uppercase character and at least 1 number");
 	        password = sc.nextLine();
-	        check = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z]){8,}.*$").matcher(password).matches();
+	        check = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]){8,}.*$").matcher(password).matches();
 	        if (!check) {
 	            System.out.println(" password invalid ");
 	            checkPassword();
